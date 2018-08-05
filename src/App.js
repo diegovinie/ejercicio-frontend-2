@@ -3,6 +3,7 @@ import Instructions from './components/Instructions'
 import DialogSimple from './components/DialogSimple'
 import Theme from './components/Theme'
 import TableContainer from './components/TableContainer'
+import Table from './components/Table'
 
 const themeDetails = {
   title: 'Ejercicio Frontend',
@@ -19,7 +20,7 @@ class App extends Component {
         <Theme info={themeDetails} >
           <TableContainer>
             {/* SearchBar */}
-            {/* Table */}
+            <Table></Table>
             {/* AddEmployee */}
           </TableContainer>
         </Theme>

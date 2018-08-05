@@ -1,0 +1,7 @@
+/* Ajusta la tabla al contenedor */
+.table_special {
+  margin: auto;
+  margin-bottom: 20px;
+  padding-right: 20px;
+  overflow-y: auto;
+}
