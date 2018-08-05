@@ -1,0 +1,33 @@
+/* La ventana modal */
+.modal-cont {
+  background-color: #cc8;
+  width: 600px;
+  padding: 10px 20px;
+  margin-top: 25px;
+  margin-right: 5px;
+  position: fixed;
+  right: 0;
+  top: 20px;
+  bottom: 5px;
+  overflow-y: auto;
+  text-align: left;
+}
+/* El botón de activar */
+.btn-switch {
+  background-color: green;
+  color: white;
+  display: block;
+  position: fixed;
+  right: 10px;
+  top: 15px;
+  z-index: 3;
+  padding: 2px 4px 2px 4px;
+  border-radius: 4px;
+}
+/* Transiciones */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}

@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
-import employees from './employees'
 import Instructions from './components/Instructions'
+import DialogSimple from './components/DialogSimple'
+
+// import employees from './employees'
 
 class App extends Component {
   render() {
     return (
-      <Instructions />
+      <DialogSimple>
+        <Instructions />
+      </DialogSimple>
     )
   }
 }
