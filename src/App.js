@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Instructions from './components/Instructions'
 import DialogSimple from './components/DialogSimple'
 import Theme from './components/Theme'
+import TableContainer from './components/TableContainer'
 
 const themeDetails = {
   title: 'Ejercicio Frontend',
@@ -15,9 +16,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Theme
-          info={themeDetails}>
-          La tabla
+        <Theme info={themeDetails} >
+          <TableContainer>
+            {/* SearchBar */}
+            {/* Table */}
+            {/* AddEmployee */}
+          </TableContainer>
         </Theme>
         <DialogSimple>
           <Instructions />
