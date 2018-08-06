@@ -37,7 +37,6 @@ class App extends Component {
       <div>
         <Theme info={themeDetails} >
           <TableContainer>
-            {/* SearchBar */}
             <Table></Table>
             {/* AddEmployee */}
           </TableContainer>

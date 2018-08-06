@@ -8,6 +8,7 @@ import TableHead from './TableHead'
 import TableBody from './TableBody'
 import TableButtons from './TableButtons'
 import PrettyButton from './PrettyButton'
+import SearchBar from './SearchBar'
 
 // Se importan los datos de los empleados
 import employees from '../../employees'
@@ -32,24 +33,37 @@ export default class Table extends React.Component
   constructor (props) {
     // Llama al constructor de React.Component
     super(props)
+
+    this.updateFiltered = this.updateFiltered.bind(this)
+    
     this.state = {
-      employees           // (array) Lista de los empleados
+      employees,           // (array) Lista de los empleados
+      filteredEmployees: employees
     }
+  }
+
+  updateFiltered (filteredList) {
+    this.setState({filteredEmployees: filteredList})
   }
 
   render () {
 
     return (
-      <table id="employees_table" className="table_special mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-        <TableHead></TableHead>
-        <TableBody data={employees}></TableBody>
-        <TableButtons>
-          <PrettyButton>Editar</PrettyButton>
-          <PrettyButton>Cambiar Moneda</PrettyButton>
-          <PrettyButton>Imprimir</PrettyButton>
-          <PrettyButton>Agregar</PrettyButton>
-        </TableButtons>
-    </table>
+      <div>
+        <SearchBar
+          data={this.state.employees}
+          onSearchChange={this.updateFiltered} />
+        <table id="employees_table" className="table_special mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+          <TableHead></TableHead>
+          <TableBody data={this.state.filteredEmployees}></TableBody>
+          <TableButtons>
+            <PrettyButton>Editar</PrettyButton>
+            <PrettyButton>Cambiar Moneda</PrettyButton>
+            <PrettyButton>Imprimir</PrettyButton>
+            <PrettyButton>Agregar</PrettyButton>
+          </TableButtons>
+        </table>
+      </div>
     )
   }
 }
