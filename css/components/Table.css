@@ -5,3 +5,12 @@
   padding-right: 20px;
   overflow-y: auto;
 }
+
+/* Cuando el salario es menor de 10000 */
+td.text-poor {
+  color: #ff3300 !important;    /* red 50% */
+}
+/* Cuando el salario es mayor de 10000 */
+td.text-rich {
+  color: #00802b !important;    /* gree 25% */
+}

@@ -37,12 +37,14 @@ export default function TableBody (props) {
     if (!props.usd) {
       return num
     }
-
     if (typeof num !== 'number') {
       num = Number.parseFloat(num)
     }
-
     return num / props.exchange
+  }
+
+  const currenyStyle = (value) => {
+    return value > 10000 ? 'text-rich' : 'text-poor'
   }
 
   // Recorre el array creando una fila por cada empleado
@@ -60,11 +62,10 @@ export default function TableBody (props) {
           <td>
             <input className="mdl-textfield__input" type="text" value={employee.age} />
           </td>
-          <td className="{ 'currency': true, 'text-poor': employee.salary < 10000, 'text-rich': employee.salary > 10000 }">
+          <td className={currenyStyle(employee.salary)}>
             <input
               className="mdl-textfield__input"
               type="text"
-              data-value={employee.salary}
               value={currency(dollar(employee.salary))} />
           </td>
           <td className="custom_text_input">
@@ -87,7 +88,7 @@ export default function TableBody (props) {
           <td>
             {employee.age}
           </td>
-          <td>
+          <td className={currenyStyle(employee.salary)}>
             <span>{currency(dollar(employee.salary))}</span>
           </td>
           <td className="mdl-data-table__cell--non-numeric">
