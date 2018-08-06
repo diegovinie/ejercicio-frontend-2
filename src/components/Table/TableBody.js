@@ -12,6 +12,7 @@ import React from 'react'
  * @param {bool} props.editable Si es modo edición.
  * @param {bool} props.usd
  * @param {number} props.exchange
+ * @param {function} props.onDeleteEmployee
  */
 export default function TableBody (props) {
 
@@ -50,6 +51,19 @@ export default function TableBody (props) {
   // Recorre el array creando una fila por cada empleado
   props.data.forEach((employee) => {
     let tr
+    let deleteEmployee = (
+      <td>
+        <a
+          href
+          onClick={(ev) => {
+            ev.preventDefault()
+            return props.onDeleteEmployee(employee.id)
+          }} >
+          <span className="material-icons">delete</span>
+        </a>
+      </td>
+    )
+
     if (props.editable) {
       tr = (
         <tr key={employee.id}>
@@ -74,6 +88,7 @@ export default function TableBody (props) {
           <td className="custom_text_input">
             <input className="mdl-textfield__input" type="email" value={employee.email} />
           </td>
+          {deleteEmployee}
         </tr>
       )
     } else {
@@ -97,6 +112,7 @@ export default function TableBody (props) {
           <td className="mdl-data-table__cell--non-numeric">
             {employee.email}
           </td>
+          {deleteEmployee}
         </tr>
       )
     }

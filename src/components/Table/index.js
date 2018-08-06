@@ -37,6 +37,7 @@ export default class Table extends React.Component
     this.updateFiltered = this.updateFiltered.bind(this)
     this.swapEditable = this.swapEditable.bind(this)
     this.swapCurrency = this.swapCurrency.bind(this)
+    this.deleteEmployee = this.deleteEmployee.bind(this)
 
     this.state = {
       employees,           // (array) Lista de los empleados
@@ -59,6 +60,15 @@ export default class Table extends React.Component
     this.setState((state) => {return {usd: !state.usd}})
   }
 
+  deleteEmployee (id) {
+    this.setState((state) => {
+      let employees = state.employees.filter((item) => item.id !== id)
+      let filteredEmployees = state.filteredEmployees.filter((item) => item.id !== id)
+
+      return {employees, filteredEmployees}
+    })
+  }
+
   render () {
 
     return (
@@ -74,6 +84,7 @@ export default class Table extends React.Component
             data={this.state.filteredEmployees}
             editable={this.state.editable}
             usd={this.state.usd}
+            onDeleteEmployee={this.deleteEmployee}
             exchange={this.state.exchange}></TableBody>
           <TableButtons>
             <PrettyButton callback={this.swapEditable} >Editar</PrettyButton>
