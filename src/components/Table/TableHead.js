@@ -1,5 +1,14 @@
 import React from 'react'
 
+/**
+ * Componente del encabezado de la tabla.
+ *
+ * Originalmente para usar con Table.
+ *
+ * @param {object} props
+ * @param {bool} props.usd Verdadero si los salarios están en dólares.
+ * @param {bool} props.editable Verdadero si está en modo edición.
+ */
 export default function TableHead (props) {
   return (
     <thead>

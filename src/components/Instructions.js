@@ -1,5 +1,8 @@
 import React from 'react'
 
+/**
+ * Solo para mostrar las instrucciones del ejercicio.
+ */
 export default function Instructions () {
   return (
     <div id='employees'>

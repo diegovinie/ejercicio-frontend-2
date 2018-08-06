@@ -1,7 +1,18 @@
 import React from 'react'
 
+// Componentes
 import Footer from './Footer'
 
+/**
+ * Componente para el layout general.
+ *
+ * @param {object} props
+ * @param {string} props.children El slot.
+ * @param {object} props.info Información del tema.
+ * @param {string} props.info.title El título.
+ * @param {string} props.info.repositoryURL
+ * @param {string} props.info.mailTo 
+ */
 export default function Theme (props) {
   return (
     <div id="app">
