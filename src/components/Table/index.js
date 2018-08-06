@@ -67,7 +67,9 @@ export default class Table extends React.Component
           data={this.state.employees}
           onSearchChange={this.updateFiltered} />
         <table id="employees_table" className="table_special mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-          <TableHead></TableHead>
+          <TableHead
+            usd={this.state.usd}
+            editable={this.state.editable}></TableHead>
           <TableBody
             data={this.state.filteredEmployees}
             editable={this.state.editable}

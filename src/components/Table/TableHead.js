@@ -17,7 +17,7 @@ export default function TableHead (props) {
         <th className="mdl-data-table__cell--non-numeric">Compañía</th>
         <th>Edad</th>
         <th>
-          Salario <small>{/* ({{ usd && !editable ? 'USD$' : 'MXN$' }}) */}</small>
+          Salario <small>({props.usd && !props.editable ? 'USD$' : 'MXN$' })</small>
         </th>
         <th className="mdl-data-table__cell--non-numeric">Teléfono</th>
         <th className="mdl-data-table__cell--non-numeric">Correo</th>
