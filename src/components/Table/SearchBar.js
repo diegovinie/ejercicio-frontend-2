@@ -12,6 +12,9 @@ import React from 'react'
  */
 export default function SearchBar (props) {
 
+  /** Nombre de la función (para debug) */
+  const _name = 'SearchBar'
+
   /**
    * Devuelve un array filtrado.
    *
@@ -44,11 +47,33 @@ export default function SearchBar (props) {
     props.onSearchChange(search(ev.target.value, props.data))
   }
 
+  // Se revisa que existan las propiedades necesarias
+  if (!props.data) {
+    console.log(props)
+    throw `${_name}: No existe la propiedad data.`
+  }
+
+  if (!Array.isArray(props.data)) {
+    console.log(props.data)
+    throw `${_name}: La propiedad data no es Array.`
+  }
+
+  if (!props.onSearchChange) {
+    console.log(props)
+    throw `${_name}: No existe la propiedad onSearchChange.`
+  }
+
+  if (typeof props.onSearchChange !== 'function') {
+    console.log(props.onSearchChange)
+    throw `${_name}: La propiedad onSearchChange no devuelve una función.`
+  }
+
+
   return (
     <input
       className="mdl-textfield__input"
       type="text"
       onChange={(ev) => handleChange(ev)}
-      placeholder="Buscar...." />
+      placeholder="Buscar..." />
   )
 }
