@@ -35,15 +35,28 @@ export default class Table extends React.Component
     super(props)
 
     this.updateFiltered = this.updateFiltered.bind(this)
-    
+    this.swapEditable = this.swapEditable.bind(this)
+    this.swapCurrency = this.swapCurrency.bind(this)
+
     this.state = {
       employees,           // (array) Lista de los empleados
-      filteredEmployees: employees
+      filteredEmployees: employees,
+      editable: false,
+      usd: false,
+      exchange: 21.50
     }
   }
 
   updateFiltered (filteredList) {
     this.setState({filteredEmployees: filteredList})
+  }
+
+  swapEditable () {
+    this.setState((state) => {return {editable: !state.editable}})
+  }
+
+  swapCurrency () {
+    this.setState((state) => {return {usd: !state.usd}})
   }
 
   render () {
@@ -55,10 +68,14 @@ export default class Table extends React.Component
           onSearchChange={this.updateFiltered} />
         <table id="employees_table" className="table_special mdl-data-table mdl-js-data-table mdl-shadow--2dp">
           <TableHead></TableHead>
-          <TableBody data={this.state.filteredEmployees}></TableBody>
+          <TableBody
+            data={this.state.filteredEmployees}
+            editable={this.state.editable}
+            usd={this.state.usd}
+            exchange={this.state.exchange}></TableBody>
           <TableButtons>
-            <PrettyButton>Editar</PrettyButton>
-            <PrettyButton>Cambiar Moneda</PrettyButton>
+            <PrettyButton callback={this.swapEditable} >Editar</PrettyButton>
+            <PrettyButton callback={this.swapCurrency}>Cambiar Moneda</PrettyButton>
             <PrettyButton>Imprimir</PrettyButton>
             <PrettyButton>Agregar</PrettyButton>
           </TableButtons>
