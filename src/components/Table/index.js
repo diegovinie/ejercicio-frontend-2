@@ -141,10 +141,22 @@ export default class Table extends React.Component
             onDeleteEmployee={this.deleteEmployee}
             exchange={this.state.exchange}></TableBody>
           <TableButtons>
-            <PrettyButton callback={this.swapEditable}>edit</PrettyButton>
-            <PrettyButton callback={this.swapCurrency}>attach_money</PrettyButton>
-            <PrettyButton>print</PrettyButton>
-            <PrettyButton callback={this.swapDialog}>add</PrettyButton>
+            <PrettyButton
+              callback={this.swapEditable}
+              iconName="edit"
+              tooltip="Editar los campos">Editar los Campos</PrettyButton>
+            <PrettyButton
+              callback={this.swapCurrency}
+              iconName="attach_money"
+              tooltip="Cambiar a">Cambiar Moneda</PrettyButton>
+            <PrettyButton
+              callback
+              iconName="print"
+              tooltip="Imprimir en consola">Imprimir Empleados</PrettyButton>
+            <PrettyButton
+              callback={this.swapDialog}
+              iconName="add"
+              tooltip="Agregar un nuevo empleado">Agregar Empleado</PrettyButton>
           </TableButtons>
         </table>
         <Dialog active={this.state.addDialog}>

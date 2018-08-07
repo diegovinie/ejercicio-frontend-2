@@ -11,13 +11,15 @@ export default function PrettyButton (props) {
 
   return (
     <button
-      id="btn-edit"
+      id={`btn-${props.iconName}`}
       type="button"
       className="custom-button"
       onClick={(ev) => handleClick(ev)}
       >
-      <i className="material-icons">{props.children}</i>
-
+      <i className="material-icons">{props.iconName}</i>
+      <div className="mdl-tooltip" data-mdl-for={`btn-${props.iconName}`}>
+        {props.tooltip}
+      </div>
     </button>
   )
 }
