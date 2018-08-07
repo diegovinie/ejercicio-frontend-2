@@ -1,0 +1,17 @@
+/* Estilos de botones según instrucciones */
+.custom-button {
+  background-color: rgba(0, 0, 0, .2);
+  border-radius: 50%;
+  border-color: #00802b;
+  border-style: solid;
+  border-width: 2px;
+  height: 60px;
+  width: 60px;
+  transition: all .4s;
+  color: #00802b;
+}
+
+.custom-button:hover {
+  background-color: #00802b;
+  color: #FFF;
+}

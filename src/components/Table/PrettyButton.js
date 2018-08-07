@@ -1,5 +1,7 @@
 import React from 'react'
 
+import '../../../css/components/PrettyButton.css'
+
 export default function PrettyButton (props) {
 
   const handleClick = (ev) => {
@@ -11,10 +13,11 @@ export default function PrettyButton (props) {
     <button
       id="btn-edit"
       type="button"
-      className="classButtons"
+      className="custom-button"
       onClick={(ev) => handleClick(ev)}
       >
-      {props.children}
+      <i className="material-icons">{props.children}</i>
+
     </button>
   )
 }
