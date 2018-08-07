@@ -7,6 +7,8 @@
 
 import React, { Component } from 'react'
 
+import '../css/App.css'
+
 // Se importan los componentes
 import Instructions from './components/Instructions'
 import DialogSimple from './components/DialogSimple'    // La ventana modal
@@ -34,7 +36,7 @@ const themeDetails = {
 class App extends Component {
   render() {
     return (
-      <div>
+      <div id="app">
         <Theme info={themeDetails} >
           <TableContainer>
             <Table></Table>
