@@ -47,26 +47,28 @@ export default function SearchBar (props) {
     props.onSearchChange(search(ev.target.value, props.data))
   }
 
+  /* Leer sobre transición del estado */
+
   // Se revisa que existan las propiedades necesarias
-  if (!props.data) {
-    console.log(props)
-    throw `${_name}: No existe la propiedad data.`
-  }
-
-  if (!Array.isArray(props.data)) {
-    console.log(props.data)
-    throw `${_name}: La propiedad data no es Array.`
-  }
-
-  if (!props.onSearchChange) {
-    console.log(props)
-    throw `${_name}: No existe la propiedad onSearchChange.`
-  }
-
-  if (typeof props.onSearchChange !== 'function') {
-    console.log(props.onSearchChange)
-    throw `${_name}: La propiedad onSearchChange no devuelve una función.`
-  }
+  // if (!props.data) {
+  //   console.log(props)
+  //   throw `${_name}: No existe la propiedad data.`
+  // }
+  //
+  // if (!Array.isArray(props.data)) {
+  //   console.log(props.data)
+  //   throw `${_name}: La propiedad data no es Array.`
+  // }
+  //
+  // if (!props.onSearchChange) {
+  //   console.log(props)
+  //   throw `${_name}: No existe la propiedad onSearchChange.`
+  // }
+  //
+  // if (typeof props.onSearchChange !== 'function') {
+  //   console.log(props.onSearchChange)
+  //   throw `${_name}: La propiedad onSearchChange no devuelve una función.`
+  // }
 
 
   return (

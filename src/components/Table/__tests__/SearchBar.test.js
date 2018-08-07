@@ -19,7 +19,9 @@ describe('Prueba los argumentos de SearchBar:', () => {
   // const bklog = console.log
   console.log = jest.fn()
 
-  it('falla si props.data no existe', () => {
+  /* Leer sobre transición del estado */
+
+  it.skip('falla si props.data no existe', () => {
     try {
       ReactDOM.render(
         <SearchBar onSearchChange={props.onSearchChange} />,
@@ -33,7 +35,7 @@ describe('Prueba los argumentos de SearchBar:', () => {
     }
   })
 
-  it('falla si props.data no es array', () => {
+  it.skip('falla si props.data no es array', () => {
     try {
       ReactDOM.render(
         <SearchBar
@@ -49,7 +51,7 @@ describe('Prueba los argumentos de SearchBar:', () => {
     }
   })
 
-  it('falla si props.onSearchChange no existe', () => {
+  it.skip('falla si props.onSearchChange no existe', () => {
     try {
       ReactDOM.render(
         <SearchBar
@@ -64,7 +66,7 @@ describe('Prueba los argumentos de SearchBar:', () => {
     }
   })
 
-  it('falla si props.onSearchChange no es función', () => {
+  it.skip('falla si props.onSearchChange no es función', () => {
     try {
       ReactDOM.render(
         <SearchBar
