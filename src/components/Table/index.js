@@ -133,13 +133,13 @@ export default class Table extends React.Component
         <table id="employees_table" className="table_special mdl-data-table mdl-js-data-table mdl-shadow--2dp">
           <TableHead
             usd={this.state.usd}
-            editable={this.state.editable}></TableHead>
+            editable={this.state.editable} />
           <TableBody
             data={this.state.filteredEmployees}
             editable={this.state.editable}
             usd={this.state.usd}
             onDeleteEmployee={this.deleteEmployee}
-            exchange={this.state.exchange}></TableBody>
+            exchange={this.state.exchange} />
           <TableButtons>
             <PrettyButton
               callback={this.swapEditable}

@@ -88,7 +88,7 @@ export default function AddEmployee (props) {
                 pattern=".+@[a-z].*\..*"
                 placeholder="Correo" />
             </div>
-            <div className="">
+            <div>
               {/* Se utiliza esta forma de submit para utilizar los patterns */}
               <button
                 className="mdl-button"
