@@ -146,6 +146,16 @@ export default class Table extends React.Component
   }
 
   render () {
+
+    let currencyTooltip =
+    <span>
+      Cambiar a  {(this.state.usd ? 'MXN$' : 'USD$')}
+      <br />
+      <small>
+        {this.state.exchange} MXN$/USD$
+      </small>
+    </span>
+
     return (
       <div>
         <SearchBar
@@ -170,7 +180,8 @@ export default class Table extends React.Component
             <PrettyButton
               callback={this.swapCurrency}
               iconName="attach_money"
-              tooltip="Cambiar a">Cambiar Moneda</PrettyButton>
+              tooltip={currencyTooltip}
+              >Cambiar Moneda</PrettyButton>
             <PrettyButton
               callback={this.printEmployees}
               iconName="print"
