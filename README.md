@@ -1,3 +1,23 @@
+## En esta rama se hizo el ejercicio React
+  - Se intentó realizar el mismo ejercicio hecho [anteriormente con Vue.js](https://github.com/diegovinie/ejercicio-frontend-2/tree/vuejsversion) esta vez con React.
+  - El ejercicio se realizó usando igualmente una plantilla de [Material Design Lite](https://getmdl.io/).
+  - Algunos estilos se sobreescribieron con clases custom para cumplir con los objetivos del ejercicio.
+  - La demostración está disponible [aquí](http://resuelvereact.proyectowaraira.com).
+
+### Para ejecutar:
+  - Clonar la rama.
+  - Para instalar dependencias: `yarn install`
+  - Para ejecutar en modo desarrollo: `yarn start`
+  - Para ejecutar en modo producción: `yarn build` luego levantar un servidor en `build/`.
+
+### TODO:
+  - Las validaciones para los campos en modo edición.
+  - Faltan por escribir diferentes pruebas (Sólo hay pruebas para SearchBar).
+  - El soporte para dispositivos móbiles.
+  - No se ha probado en navegadores antiguos.
+
+--------
+
 ## Estamos buscando desarrolladores con experiencia en
   - HTML5
   - CSS o SCSS
