@@ -30,3 +30,12 @@ td.text-rich {
 .custom_text_input:hover {
   width: 250px;
 }
+
+  /* Para hacer las filas de colores distintos */
+  tr.row-colored {
+    background-color: #ebfaeb;   /* green 95% */
+}
+  /* Cambia el color del texto cuando se pasa el puntero */
+  tr:hover {
+    color: #145214;   /* green 20% */
+}

@@ -52,6 +52,10 @@ export default function TableBody (props) {
     props.onEditEmployee(id, key, ev.target.value)
   }
 
+  // Para pintar filas intercaladas. Se prefiere al uso de id porque
+  // al borrar empleados se puede perder la continuidad par-impar
+  let index = 1
+
   // Recorre el array creando una fila por cada empleado
   props.data.forEach((employee) => {
     let tr
@@ -70,7 +74,7 @@ export default function TableBody (props) {
 
     if (props.editable) {
       tr = (
-        <tr key={employee.id}>
+        <tr key={employee.id} className={(index % 2 ? 'row-colored' : '')}>
           <td className="custom_text_input">
             <input
               className="mdl-textfield__input"
@@ -118,7 +122,7 @@ export default function TableBody (props) {
       )
     } else {
       tr = (
-        <tr key={employee.id}>
+        <tr key={employee.id} className={(index % 2 ? 'row-colored' : '')}>
           <td className="mdl-data-table__cell--non-numeric">
             {employee.name}
           </td>
@@ -141,7 +145,7 @@ export default function TableBody (props) {
         </tr>
       )
     }
-
+    index += 1
     employeeslist.push(tr)
   })
 
