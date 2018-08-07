@@ -71,7 +71,7 @@ export default function TableBody (props) {
             <input className="mdl-textfield__input" type="text" value={employee.name} />
           </td>
           <td className="custom_text_input">
-            <input className="mdl-textfield__input" type="text" value={employee.company} readonly />
+            <input className="mdl-textfield__input" type="text" value={employee.company} readOnly />
           </td>
           <td>
             <input className="mdl-textfield__input" type="text" value={employee.age} />
