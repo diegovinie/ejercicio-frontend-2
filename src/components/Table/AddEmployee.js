@@ -34,7 +34,9 @@ export default function AddEmployee (props) {
                 type="text"
                 value={props.employee.name}
                 onChange={(ev) => handleChange(ev, 'name')}
-                pattern="[A-Z](\.|[a-z]+)( [A-Z](\.|[a-z]+))( [A-Z](\.|[a-z]+))?" required
+                pattern="[A-Z](\.|[a-z]+)( [A-Z](\.|[a-z]+))( [A-Z](\.|[a-z]+))?"
+                required autoFocus
+                title="ejem: Andrés Eloy Blanco ó Andrés E. Blanco ó Andrés B."
                 placeholder="Nombre" />
               <span className="mdl-textfield__error">error</span>
             </div>
@@ -55,6 +57,7 @@ export default function AddEmployee (props) {
                 value={props.employee.age}
                 onChange={(ev) => handleChange(ev, 'age')}
                 pattern="\d{2}|11\d"
+                title="Una edad creíble por favor"
                 placeholder="Edad" />
             </div>
             <div className="mdl-textfield mdl-js-textfield">
@@ -65,6 +68,7 @@ export default function AddEmployee (props) {
                 value={props.employee.salary}
                 onChange={(ev) => handleChange(ev, 'salary')}
                 pattern="\d*(\.\d+)?" required
+                title="Sólo usar números y (.) para separar decimales de ser necesario"
                 placeholder="Salario" />
             </div>
             {/* Campo Teléfono */}
@@ -75,7 +79,7 @@ export default function AddEmployee (props) {
                 value={props.employee.phone}
                 onChange={(ev) => handleChange(ev, 'phone')}
                 pattern="^\(\d{3}\) \d{3} \d{4}$"
-                title="(###) ### ####"
+                title="formato: (###) ### ####"
                 placeholder="Teléfono" />
             </div>
             <div className="mdl-textfield mdl-js-textfield">
@@ -102,7 +106,6 @@ export default function AddEmployee (props) {
                 name="button">
                   Cancelar
               </button>
-
             </div>
           </form>
     </div>
