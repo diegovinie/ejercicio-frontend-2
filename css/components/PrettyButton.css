@@ -9,6 +9,7 @@
   width: 60px;
   transition: all .4s;
   color: #00802b;
+  margin-right: 4px;
 }
 
 .custom-button:hover {
