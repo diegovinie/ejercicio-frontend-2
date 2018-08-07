@@ -100,11 +100,11 @@ export default class Table extends React.Component
 
     this.setState((state) => {
       return {
-        employees: state.employees.push(this.state.newEmployee)
+        employees: state.employees.concat(state.newEmployee)
       }
     })
 
-    this.setState((state) => {return {filteredList: this.state.employees}})
+    this.setState((state) => {return {filteredEmployees: state.employees}})
     this.clearNewEmployee()
     this.swapDialog()
   }
