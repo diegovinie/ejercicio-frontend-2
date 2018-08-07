@@ -12,7 +12,8 @@ import React from 'react'
  * @param {bool} props.editable Si es modo edición.
  * @param {bool} props.usd
  * @param {number} props.exchange
- * @param {function} props.onDeleteEmployee
+ * @param {function} props.onDeleteEmployee Para eliminar un empleado.
+ * @param {function} props.onEditEmployee Para editar un empleado.
  */
 export default function TableBody (props) {
 
@@ -23,6 +24,12 @@ export default function TableBody (props) {
   */
   const employeeslist = []
 
+  /**
+   * Filtra los datos para expresarlos en forma de moneda.
+   *
+   * @param {number} num El número a filtrar.
+   * @return {string} El número con el formato.
+   */
   const currency = (num) => {
     if (typeof num !== 'number') {
       num = Number.parseFloat(num)
@@ -34,6 +41,13 @@ export default function TableBody (props) {
     })
   }
 
+  /**
+   * Expresa el valor en dólares.
+   *
+   * @param {number} num El número a cambiar.
+   * @param {number} props.exchange El valor del cambio.
+   * @return {number} El valor en dólares.
+   */
   const dollar = (num) => {
     if (!props.usd) {
       return num
@@ -44,10 +58,27 @@ export default function TableBody (props) {
     return num / props.exchange
   }
 
-  const currenyStyle = (value) => {
+  /**
+   * Devuelve una clase (color del texto) dependiendo de su valor.
+   *
+   * @param {number} value
+   * @return {string} El nombre de la clase.
+   */
+  const currencyStyle = (value) => {
     return value > 10000 ? 'text-rich' : 'text-poor'
   }
 
+  /**
+   * Actualiza cuando se está escribiendo en los campos.
+   *
+   * @listens event:onChange
+   * @emits parent~event:onEditEmployee
+   *
+   * @param {number} id El id del empleado que se esta editando.
+   * @param {string} key El campo que se está editando.
+   * @param {object} ev El evento.
+   * @param {string} ev.target.value El nuevo valor.
+   */
   const handleChange = (id, key, ev) => {
     props.onEditEmployee(id, key, ev.target.value)
   }
@@ -96,7 +127,7 @@ export default function TableBody (props) {
               onChange={(ev) => handleChange(employee.id, 'age', ev)}
               value={employee.age} />
           </td>
-          <td className={currenyStyle(employee.salary)}>
+          <td className={currencyStyle(employee.salary)}>
             <input
               className="mdl-textfield__input"
               type="text"
@@ -132,7 +163,7 @@ export default function TableBody (props) {
           <td>
             {employee.age}
           </td>
-          <td className={currenyStyle(employee.salary)}>
+          <td className={currencyStyle(employee.salary)}>
             <span>{currency(dollar(employee.salary))}</span>
           </td>
           <td className="mdl-data-table__cell--non-numeric">
