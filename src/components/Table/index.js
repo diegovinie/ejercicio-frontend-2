@@ -10,6 +10,7 @@ import TableButtons from './TableButtons'
 import PrettyButton from './PrettyButton'
 import SearchBar from './SearchBar'
 import AddEmployee from './AddEmployee'
+import Dialog from '../Dialog'
 
 // Se importan los datos de los empleados
 import employees from '../../employees'
@@ -124,19 +125,6 @@ export default class Table extends React.Component
   }
 
   render () {
-    const AddEmployeeDialog = (() => {
-      if (this.state.addDialog) {
-        return (
-          <AddEmployee
-            employee={this.state.newEmployee}
-            nextId={this.getNextId}
-            onKeyChange={this.keyChange}
-            onCancel={this.cancelAndReturn}
-            onFormSubmit={this.storeEmployee} />
-        )
-      }
-    })()
-
     return (
       <div>
         <SearchBar
@@ -159,7 +147,14 @@ export default class Table extends React.Component
             <PrettyButton callback={this.swapDialog}>Agregar</PrettyButton>
           </TableButtons>
         </table>
-        {AddEmployeeDialog}
+        <Dialog active={this.state.addDialog}>
+          <AddEmployee
+            employee={this.state.newEmployee}
+            nextId={this.getNextId}
+            onKeyChange={this.keyChange}
+            onCancel={this.cancelAndReturn}
+            onFormSubmit={this.storeEmployee} />
+        </Dialog>
       </div>
     )
   }
