@@ -132,7 +132,7 @@ export default function TableBody (props) {
               className="mdl-textfield__input"
               type="text"
               onChange={(ev) => handleChange(employee.id, 'salary', ev)}
-              value={currency(dollar(employee.salary))} />
+              value={employee.salary} />
           </td>
           <td className="custom_text_input">
             <input
