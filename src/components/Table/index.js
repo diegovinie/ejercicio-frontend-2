@@ -47,6 +47,7 @@ export default class Table extends React.Component
     this.clearNewEmployee = this.clearNewEmployee.bind(this)
     this.cancelAndReturn = this.cancelAndReturn.bind(this)
     this.editEmployee = this.editEmployee.bind(this)
+    this.printEmployees = this.printEmployees.bind(this)
 
     this.employePattern = {
       name: '',
@@ -137,6 +138,13 @@ export default class Table extends React.Component
     })
   }
 
+  printEmployees () {
+    let cloneFiltered = JSON.parse(JSON.stringify(this.state.filteredEmployees))
+    let cloneEmployees = JSON.parse(JSON.stringify(this.state.employees))
+    console.log('Empleados filtrados: ', cloneFiltered)
+    console.log('Empleados totales: ', cloneEmployees)
+  }
+
   render () {
     return (
       <div>
@@ -164,7 +172,7 @@ export default class Table extends React.Component
               iconName="attach_money"
               tooltip="Cambiar a">Cambiar Moneda</PrettyButton>
             <PrettyButton
-              callback
+              callback={this.printEmployees}
               iconName="print"
               tooltip="Imprimir en consola">Imprimir Empleados</PrettyButton>
             <PrettyButton
