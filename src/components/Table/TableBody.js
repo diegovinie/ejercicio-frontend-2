@@ -48,6 +48,10 @@ export default function TableBody (props) {
     return value > 10000 ? 'text-rich' : 'text-poor'
   }
 
+  const handleChange = (id, key, ev) => {
+    props.onEditEmployee(id, key, ev.target.value)
+  }
+
   // Recorre el array creando una fila por cada empleado
   props.data.forEach((employee) => {
     let tr
@@ -68,25 +72,46 @@ export default function TableBody (props) {
       tr = (
         <tr key={employee.id}>
           <td className="custom_text_input">
-            <input className="mdl-textfield__input" type="text" value={employee.name} />
+            <input
+              className="mdl-textfield__input"
+              type="text"
+              onChange={(ev) => handleChange(employee.id, 'name', ev)}
+              value={employee.name} />
           </td>
           <td className="custom_text_input">
-            <input className="mdl-textfield__input" type="text" value={employee.company} readOnly />
+            <input
+              className="mdl-textfield__input"
+              type="text"
+              value={employee.company}
+              readOnly />
           </td>
           <td>
-            <input className="mdl-textfield__input" type="text" value={employee.age} />
+            <input
+              className="mdl-textfield__input"
+              type="text"
+              onChange={(ev) => handleChange(employee.id, 'age', ev)}
+              value={employee.age} />
           </td>
           <td className={currenyStyle(employee.salary)}>
             <input
               className="mdl-textfield__input"
               type="text"
+              onChange={(ev) => handleChange(employee.id, 'salary', ev)}
               value={currency(dollar(employee.salary))} />
           </td>
           <td className="custom_text_input">
-            <input className="mdl-textfield__input" type="text" value={employee.phone} />
+            <input
+              className="mdl-textfield__input"
+              type="text"
+              onChange={(ev) => handleChange(employee.id, 'phone', ev)}
+              value={employee.phone} />
           </td>
           <td className="custom_text_input">
-            <input className="mdl-textfield__input" type="email" value={employee.email} />
+            <input
+              className="mdl-textfield__input"
+              type="email"
+              onChange={(ev) => handleChange(employee.id, 'email', ev)}
+              value={employee.email} />
           </td>
           {deleteEmployee}
         </tr>

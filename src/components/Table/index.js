@@ -46,6 +46,7 @@ export default class Table extends React.Component
     this.getNextId = this.getNextId.bind(this)
     this.clearNewEmployee = this.clearNewEmployee.bind(this)
     this.cancelAndReturn = this.cancelAndReturn.bind(this)
+    this.editEmployee = this.editEmployee.bind(this)
 
     this.employePattern = {
       name: '',
@@ -124,6 +125,18 @@ export default class Table extends React.Component
     this.swapDialog()
   }
 
+  editEmployee (id, key, value) {
+    this.setState((state) => {
+      let updatedEmployees = state.employees.map((item) => {
+        if (item.id === id) {
+          item[key] = value
+        }
+        return item
+      })
+      return {employees: updatedEmployees}
+    })
+  }
+
   render () {
     return (
       <div>
@@ -139,6 +152,7 @@ export default class Table extends React.Component
             editable={this.state.editable}
             usd={this.state.usd}
             onDeleteEmployee={this.deleteEmployee}
+            onEditEmployee={this.editEmployee}
             exchange={this.state.exchange} />
           <TableButtons>
             <PrettyButton
