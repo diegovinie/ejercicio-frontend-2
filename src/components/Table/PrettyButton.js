@@ -1,8 +1,25 @@
 import React from 'react'
 
+// Los estilos del botón
 import '../../../css/components/PrettyButton.css'
 
+/**
+ * Componente para crear un botón dinámico.
+ *
+ * @param {object} props
+ * @param {string} props.iconName Tipo de icono.
+ * @param {function} props.callback Cuando el botón se activa.
+ */
 export default function PrettyButton (props) {
+
+  /**
+   * Ejecuta el callback.
+   *
+   * @listens event:onClick
+   * @emits parent:callback
+   *
+   * @param {type} name description
+   */
 
   const handleClick = (ev) => {
     props.callback(ev)
