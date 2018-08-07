@@ -72,10 +72,12 @@ export default function SearchBar (props) {
 
 
   return (
-    <input
-      className="mdl-textfield__input"
-      type="text"
-      onChange={(ev) => handleChange(ev)}
-      placeholder="Buscar..." />
+    <div className="mdl-textfield mdl-js-textfield">
+      <input
+        className="mdl-textfield__input"
+        type="text"
+        onChange={(ev) => handleChange(ev)}
+        placeholder="Buscar..." />
+    </div>
   )
 }
