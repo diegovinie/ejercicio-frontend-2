@@ -1,5 +1,5 @@
 /* La ventana modal */
-.modal-cont {
+.modal-simple-cont {
   background-color: #cc8;
   width: 600px;
   padding: 10px 20px;
@@ -9,18 +9,19 @@
   right: 0;
   top: 20px;
   bottom: 5px;
+  z-index: 3;
   overflow-y: auto;
   text-align: left;
 }
 /* El botón de activar */
-.btn-switch {
+.modal-simple-btn {
   background-color: green;
   color: white;
   display: block;
   position: fixed;
   right: 10px;
   top: 15px;
-  z-index: 3;
+  z-index: 4;
   padding: 2px 4px 2px 4px;
   border-radius: 4px;
 }

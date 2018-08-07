@@ -46,7 +46,7 @@ export default class DialogSimple extends React.Component
     if (this.state.active) {
       // Si está activa pasa los hijos por el diálogo
       display =
-      <div className="modal-cont">
+      <div className="modal-simple-cont">
         {this.props.children}
       </div>
     } else {
@@ -56,7 +56,7 @@ export default class DialogSimple extends React.Component
 
     return (
       <div>
-        <a className="btn-switch" onClick={this.handleClick}>Instrucciones</a>
+        <a className="modal-simple-btn" onClick={this.handleClick}>Instrucciones</a>
         {display}
       </div>
     )
