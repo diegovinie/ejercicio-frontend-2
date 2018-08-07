@@ -9,6 +9,7 @@ import TableBody from './TableBody'
 import TableButtons from './TableButtons'
 import PrettyButton from './PrettyButton'
 import SearchBar from './SearchBar'
+import AddEmployee from './AddEmployee'
 
 // Se importan los datos de los empleados
 import employees from '../../employees'
@@ -38,13 +39,30 @@ export default class Table extends React.Component
     this.swapEditable = this.swapEditable.bind(this)
     this.swapCurrency = this.swapCurrency.bind(this)
     this.deleteEmployee = this.deleteEmployee.bind(this)
+    this.swapDialog = this.swapDialog.bind(this)
+    this.keyChange = this.keyChange.bind(this)
+    this.storeEmployee = this.storeEmployee.bind(this)
+    this.getNextId = this.getNextId.bind(this)
+    this.clearNewEmployee = this.clearNewEmployee.bind(this)
+    this.cancelAndReturn = this.cancelAndReturn.bind(this)
+
+    this.employePattern = {
+      name: '',
+      company: '',
+      age: '',
+      salary: '',
+      phone: '',
+      email: ''
+    }
 
     this.state = {
       employees,           // (array) Lista de los empleados
       filteredEmployees: employees,
       editable: false,
       usd: false,
-      exchange: 21.50
+      exchange: 21.50,
+      addDialog: false,
+      newEmployee: this.employePattern
     }
   }
 
@@ -69,7 +87,55 @@ export default class Table extends React.Component
     })
   }
 
+  swapDialog () {
+    this.setState((state) => {return {addDialog: !state.addDialog}})
+  }
+
+  keyChange (employee) {
+    this.setState({newEmployee: employee})
+  }
+
+  storeEmployee () {
+
+    this.setState((state) => {
+      return {
+        employees: state.employees.push(this.state.newEmployee)
+      }
+    })
+
+    this.setState((state) => {return {filteredList: this.state.employees}})
+    this.clearNewEmployee()
+    this.swapDialog()
+  }
+
+  clearNewEmployee () {
+    this.setState({newEmployee: this.employePattern})
+  }
+
+  getNextId () {
+    return this.state.employees.reduce((acc, item) => {
+        return item.id > acc.id ? item : acc
+      }).id + 1
+  }
+
+  cancelAndReturn () {
+    this.clearNewEmployee()
+    this.swapDialog()
+  }
+
   render () {
+    const AddEmployeeDialog = (() => {
+      if (this.state.addDialog) {
+        return (
+          <AddEmployee
+            employee={this.state.newEmployee}
+            nextId={this.getNextId}
+            onKeyChange={this.keyChange}
+            onCancel={this.cancelAndReturn}
+            onFormSubmit={this.storeEmployee} />
+        )
+      }
+    })()
 
     return (
       <div>
@@ -90,9 +156,10 @@ export default class Table extends React.Component
             <PrettyButton callback={this.swapEditable} >Editar</PrettyButton>
             <PrettyButton callback={this.swapCurrency}>Cambiar Moneda</PrettyButton>
             <PrettyButton>Imprimir</PrettyButton>
-            <PrettyButton>Agregar</PrettyButton>
+            <PrettyButton callback={this.swapDialog}>Agregar</PrettyButton>
           </TableButtons>
         </table>
+        {AddEmployeeDialog}
       </div>
     )
   }
