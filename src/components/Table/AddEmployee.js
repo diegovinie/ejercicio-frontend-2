@@ -3,7 +3,6 @@ import React from 'react'
 export default function AddEmployee (props) {
 
   const handleSubmit = () => {
-    console.log('onSubmit')
     props.onFormSubmit()
   }
 

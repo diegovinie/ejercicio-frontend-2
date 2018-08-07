@@ -5,7 +5,6 @@ import '../../../css/components/PrettyButton.css'
 export default function PrettyButton (props) {
 
   const handleClick = (ev) => {
-    console.log('callback')
     props.callback(ev)
   }
 
