@@ -14,3 +14,19 @@ td.text-poor {
 td.text-rich {
   color: #00802b !important;    /* gree 25% */
 }
+
+/* Alinear montos a la derecha */
+.currency {
+  text-align: right;
+}
+
+.custom_text_input {
+  transition: width 2s linear;
+  -moz-transition: width 2s linear;
+  -webkit-transition: width 2s linear;
+}
+
+/* Para agrandar los campos cuando se necesita editar */
+.custom_text_input:hover {
+  width: 250px;
+}
